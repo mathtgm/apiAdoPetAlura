@@ -1,6 +1,6 @@
 package br.com.alura.adopet.api.controller;
 
-import br.com.alura.adopet.api.dto.tutor.AtualizaDadosTutor;
+import br.com.alura.adopet.api.dto.tutor.AtualizacaoTutorDto;
 import br.com.alura.adopet.api.dto.tutor.CadastroTutorDto;
 import br.com.alura.adopet.api.exception.ValidacaoException;
 import br.com.alura.adopet.api.service.TutorService;
@@ -34,16 +34,16 @@ public class TutorController {
 
     @PutMapping
     @Transactional
-    public ResponseEntity<String> atualizar(@RequestBody @Valid AtualizaDadosTutor atualizaDadosTutor) {
+    public ResponseEntity<String> atualizar(@RequestBody @Valid AtualizacaoTutorDto atualizacaoTutorDto) {
 
         try {
 
-            tutorService.atualizaDadosTutor(atualizaDadosTutor);
-            return ResponseEntity.ok().body("Dados do tutor atualizado");
+            tutorService.atualizar(atualizacaoTutorDto);
+            return ResponseEntity.ok().build();
 
         } catch (EntityNotFoundException error) {
 
-            return ResponseEntity.badRequest().body("Tutor não encontrado");
+            return ResponseEntity.badRequest().body(error.getMessage());
 
         }
 

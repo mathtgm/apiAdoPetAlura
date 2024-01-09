@@ -1,6 +1,6 @@
 package br.com.alura.adopet.api.service;
 
-import br.com.alura.adopet.api.model.Pet;
+import br.com.alura.adopet.api.dto.pet.PetDto;
 import br.com.alura.adopet.api.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +15,12 @@ public class PetService {
     private PetRepository petRepository;
 
     @GetMapping
-    public List<Pet> listarTodosPetsNaoAdotados() {
-        List<Pet> pets = petRepository.findAll();
+    public List<PetDto> buscaPetsDisponiveis() {
+        return petRepository
+                .findAllAdotadoFalse()
+                .stream()
+                .map(PetDto::new)
+                .toList();
 
-        return pets.stream().filter(pet -> !pet.getAdotado()).toList();
     }
 }
