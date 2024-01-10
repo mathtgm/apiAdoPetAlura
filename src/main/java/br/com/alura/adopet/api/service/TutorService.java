@@ -22,7 +22,7 @@ public class TutorService {
 
     public void cadastrar(CadastroTutorDto cadastroTutorDto) {
 
-        boolean jaCadastrado = tutorRepository.existByTelefoneAndEmail(cadastroTutorDto.telefone(), cadastroTutorDto.email());
+        boolean jaCadastrado = tutorRepository.existsByTelefoneAndEmail(cadastroTutorDto.telefone(), cadastroTutorDto.email());
 
         if (jaCadastrado) {
 

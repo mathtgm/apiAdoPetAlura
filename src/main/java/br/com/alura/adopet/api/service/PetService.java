@@ -17,7 +17,7 @@ public class PetService {
     @GetMapping
     public List<PetDto> buscaPetsDisponiveis() {
         return petRepository
-                .findAllAdotadoFalse()
+                .findAllByAdotadoFalse()
                 .stream()
                 .map(PetDto::new)
                 .toList();

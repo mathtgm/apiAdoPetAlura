@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface AdocaoRepository extends JpaRepository<Adocao, Long> {
 
-    boolean existsByPetIdAndStatus(Long id, StatusAdocao status);
+    boolean existsByPetIdAndStatus(Long idPet, StatusAdocao status);
 
-    boolean existsByIdTutorAndStatus(Long id, StatusAdocao status);
+    boolean existsByTutorIdAndStatus(Long idPet, StatusAdocao status);
 
-    List<Adocao> findByIdTutorAndStatus(Long id, StatusAdocao statusAdocao);
+    List<Adocao> findByTutorIdAndStatus(Long idTutor, StatusAdocao statusAdocao);
 }
