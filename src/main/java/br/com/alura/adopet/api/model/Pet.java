@@ -32,7 +32,7 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(CadastroPetAbrigoDto cadastroPetAbrigoDto) {
+    public Pet(Abrigo abrigo, CadastroPetAbrigoDto cadastroPetAbrigoDto) {
         this.tipo = cadastroPetAbrigoDto.tipoPet();
         this.nome = cadastroPetAbrigoDto.nome();
         this.raca = cadastroPetAbrigoDto.raca();
@@ -40,6 +40,7 @@ public class Pet {
         this.cor = cadastroPetAbrigoDto.cor();
         this.peso = cadastroPetAbrigoDto.peso();
         this.adotado = false;
+        this.abrigo = abrigo;
     }
 
     @ManyToOne

@@ -43,11 +43,11 @@ public class AbrigoController {
     }
 
     @GetMapping("/{idOuNome}/pets")
-    public ResponseEntity<List<Pet>> listarPets(@PathVariable ListaPetsDoAbrigoDto listaPetsDoAbrigoDto) {
+    public ResponseEntity<List<Pet>> listarPets(@PathVariable ListaPetsDoAbrigoDto idOuNome) {
 
         try {
 
-            return ResponseEntity.ok().body(abrigoService.listarPets(listaPetsDoAbrigoDto));
+            return ResponseEntity.ok().body(abrigoService.listarPets(idOuNome));
 
         } catch (EntityNotFoundException erro) {
 

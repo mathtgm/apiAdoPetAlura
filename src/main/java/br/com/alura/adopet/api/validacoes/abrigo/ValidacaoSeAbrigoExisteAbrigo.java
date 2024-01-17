@@ -12,7 +12,7 @@ public class ValidacaoSeAbrigoExisteAbrigo implements ValidacaoCadastroAbrigo {
     @Autowired
     AbrigoRepository abrigoRepository;
 
-    public void verifica(CadastraAbrigoDto abrigoDto) {
+    public void validar(CadastraAbrigoDto abrigoDto) {
         boolean nomeJaCadastrado = this.abrigoRepository.existsByNome(abrigoDto.nome());
         boolean telefoneJaCadastrado = this.abrigoRepository.existsByTelefone(abrigoDto.telefone());
         boolean emailJaCadastrado = this.abrigoRepository.existsByEmail(abrigoDto.email());

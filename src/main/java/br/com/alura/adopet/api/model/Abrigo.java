@@ -33,7 +33,7 @@ public class Abrigo {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "abrigo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "abrigo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference("abrigo_pets")
     private List<Pet> pets;
 
@@ -99,9 +99,10 @@ public class Abrigo {
         this.pets = pets;
     }
 
-    public void cadastraPetAbrigo(CadastroPetAbrigoDto cadastroPetAbrigoDto) {
+    public void cadastraPetAbrigo(Abrigo abrigo, CadastroPetAbrigoDto cadastroPetAbrigoDto) {
 
-        Pet pet = new Pet(cadastroPetAbrigoDto);
+        Pet pet = new Pet(abrigo, cadastroPetAbrigoDto);
+
         this.pets.add(pet);
 
     }

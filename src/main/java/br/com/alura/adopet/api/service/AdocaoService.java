@@ -34,6 +34,7 @@ public class AdocaoService {
     @Autowired
     private List<ValidacaoSolicitacaoAdocao> validacoes;
 
+
     public void solicitar(SolicitacaoAdocaoDto dto) {
 
         Tutor tutor = tutorRepository.getReferenceById(dto.idTutor());

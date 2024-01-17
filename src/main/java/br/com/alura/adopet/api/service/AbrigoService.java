@@ -23,7 +23,7 @@ public class AbrigoService {
 
     public void cadastrarAbrigo(CadastraAbrigoDto abrigoDto) {
 
-        validacaoCadastroAbrigo.forEach(s -> s.verifica(abrigoDto));
+        validacaoCadastroAbrigo.forEach(s -> s.validar(abrigoDto));
 
         Abrigo abrigo = new Abrigo(abrigoDto.nome(), abrigoDto.telefone(), abrigoDto.email());
         this.abrigoRepository.save(abrigo);
@@ -47,7 +47,7 @@ public class AbrigoService {
 
         Abrigo abrigo = procuraAbrigoPorNomeOuId(nomeOuId);
 
-        abrigo.cadastraPetAbrigo(cadastroPetDto);
+        abrigo.cadastraPetAbrigo(abrigo, cadastroPetDto);
         abrigoRepository.save(abrigo);
 
     }

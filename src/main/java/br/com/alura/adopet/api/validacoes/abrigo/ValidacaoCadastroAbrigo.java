@@ -4,6 +4,6 @@ import br.com.alura.adopet.api.dto.abrigo.CadastraAbrigoDto;
 
 public interface ValidacaoCadastroAbrigo {
 
-    public void verifica(CadastraAbrigoDto cadastraAbrigoDto);
+    public void validar(CadastraAbrigoDto cadastraAbrigoDto);
 
 }
